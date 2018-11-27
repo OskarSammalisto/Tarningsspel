@@ -3,7 +3,15 @@ import java.util.ArrayList;
 public class Player {
     String name;
     int points;
-    ArrayList<Die> playerDices = new ArrayList<>();
+    Die die;
+    int score;
+
+    ArrayList<Die> playerDices = new ArrayList<Die>();
+
+    public Player(String name){
+        this.name = name;
+        score = 0;
+    }
 
     public String getName() {
         return name;
@@ -16,16 +24,27 @@ public class Player {
 
 
     public void rollDice(){
-        for(int i = 0; i < playerDices.size(); i++){
-            playerDices.get(i).dieValue
+
+        for(Die die : playerDices){
+            die.roll();
         }
     }
 
     public int getDieValue(){
-        int score = 0;
+        int totalValue = 0;
         for(int i = 0; i < playerDices.size(); i++){
-            score = score + playerDices.indexOf(i); //säkert fel!!!!
+
+            totalValue += die.getDieValue(); //säkert fel!!!!
         }
-        return score;
+        return totalValue;
+    }
+
+    public void increaceScore(){
+        score++;
+    }
+
+    public void addDie(int sides){
+        Die die = new Die(sides);
+        playerDices.add(die);
     }
 }

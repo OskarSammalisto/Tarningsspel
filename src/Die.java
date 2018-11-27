@@ -4,7 +4,7 @@ public class Die {
 
     int dieValue = 0;
     int dieSides = 0;
-    private static Random random = new Random();  // int throw = random.nextInt(6) +1;
+    public static Random random = new Random();  // int throw = random.nextInt(6) +1;
 
 
     public Die(int dieSides){
